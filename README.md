@@ -1,7 +1,7 @@
 ---
 ---
 
-.
+`.
 ├── 11ty                    - root level for input/output
 │   ├── public
 │   └── src
@@ -13,4 +13,4 @@
 │       └── static          - -> copy over
 │           ├── css         -
 │           └── script      -
-└── filters                 - -> 11ty filters
+└── filters                 - -> 11ty filters`
