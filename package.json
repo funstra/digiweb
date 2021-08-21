@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "npx @11ty/eleventy --serve",
-        "build": "npx @11ty/eleventy"
+        "build": "npx @11ty/eleventy",
+        "ghbuild": "npx @11ty/eleventy --output=11ty/ghpage --pathprefix=digiweb"
     },
     "keywords": [],
     "author": "",

@@ -10,7 +10,6 @@ module.exports = (config) => {
             output: '11ty/public',
             htmlTemplateEngine: "njk",
             markdownTemplateEngine: "njk"
-            // includes: 'templates/includes'
         }
     }
 }

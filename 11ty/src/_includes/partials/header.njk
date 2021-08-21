@@ -33,7 +33,7 @@
     </svg>
     <nav>
         {% for nav in collections.mainnav %}
-        <a href={{nav.url}}>{{nav.data.title}}</a>
+        <a href={{nav.url | url}}>{{nav.data.title}}</a>
         {% endfor %}
     </nav>
     
