@@ -1,4 +1,4 @@
-const { dropFolder } = require('./filters/paths')
+const { dropFolder } = require('./11ty/filters/paths')
 module.exports = (config) => {
     config.setDataDeepMerge(true);
     config.addFilter('dropFolder', dropFolder)

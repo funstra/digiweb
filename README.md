@@ -1,9 +1,6 @@
----
----
-
 <pre>.
 ├── 11ty                    - root level for input/output
-│   ├── public
+├── filters                 - -> 11ty filters
 │   └── src
 │       ├── _includes       - templates
 │       │   └── partials    -    || 
@@ -13,5 +10,4 @@
 │       └── static          - -> copy over
 │           ├── css         -
 │           └── script      -
-└── filters                 - -> 11ty filters
 </pre>

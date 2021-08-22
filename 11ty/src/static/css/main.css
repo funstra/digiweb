@@ -1,6 +1,12 @@
 * {
     box-sizing: border-box;
 }
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
 /* variables - - -  */
 html {
     --size1: 0.25rem;
@@ -54,11 +60,10 @@ main {
     border: 2px var(--col-soft) dashed;
 }
 main > div {
-    /* overflow: scroll; */
     height: 100%;
     border-radius: 8px;
 }
-.srcoll{
+.srcoll {
     overflow: scroll;
 }
 
@@ -71,9 +76,7 @@ h4:first-child,
 h5:first-child {
     margin-top: 0;
 }
-ul {
-    padding: 0;
-}
+
 .justify {
     text-align: justify;
 }
@@ -90,7 +93,7 @@ ul {
 /* grid - - - -  */
 
 /* drapes - - -  */
-.drapes{
+.drapes {
     display: flex;
     height: 100%;
 }
