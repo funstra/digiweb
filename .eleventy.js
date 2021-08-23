@@ -1,6 +1,6 @@
 const { dropFolder } = require('./11ty/filters/paths')
 module.exports = (config) => {
-    config.setDataDeepMerge(true);
+    // config.setDataDeepMerge(true);
     config.addFilter('dropFolder', dropFolder)
     config.addWatchTarget('11ty/src/static')
     config.addPassthroughCopy('11ty/src/static')

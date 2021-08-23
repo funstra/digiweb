@@ -28,6 +28,7 @@ html {
 }
 body {
     max-width: 1024px;
+    width: 100%;
     margin: auto auto;
     background-color: var(--col-main-light);
     flex-grow: 1;
@@ -48,7 +49,7 @@ body > header nav {
     margin-left: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-end;
     padding: var(--size1);
 }
