@@ -1,3 +1,5 @@
 node_modules
 11ty/public
 11ty/ghpage
+# Local Netlify folder
+.netlify

@@ -1,0 +1,130 @@
+---
+title: contact form
+contentclass: flex-column-gap CENTER size2
+---
+<form action="" method="POST" class="flex-column" id="contact-form">
+    <div class="labeled">
+        <div>
+            <label for="email">email</label>
+            <input id="email" name="email" type="email" required
+                pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{1,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" />
+        </div>
+    </div>
+    <div class="labeled">
+        <div>
+            <label for="subject">subject</label>
+            <input id="subject" name="subject" type="text" />
+        </div>
+    </div>
+    <textarea cols="30" rows="10" name="body" placeholder="email body goes here ..." required></textarea>
+    <input value="submit" type="submit" />
+    <style>
+        #contact-form {
+            width: clamp(128px, 85%, 768px);
+            height: clamp(192px, 85%, 512px);
+        }
+
+        #contact-form>* {
+            width: 100%;
+        }
+
+        #contact-form .labeled {
+            outline: none;
+        }
+
+        #contact-form .labeled div {
+            display: flex;
+            justify-self: end;
+            overflow: hidden;
+        }
+
+        #contact-form .labeled label {
+            flex-basis: 5.5rem;
+            flex-shrink: 0;
+        }
+
+        #contact-form .labeled input {
+            flex-grow: 1;
+            border: none;
+        }
+
+        #contact-form textarea {
+            border: none;
+            flex-grow: 1;
+            min-height: 0;
+            flex-shrink: 1;
+            resize: none;
+        }
+
+        #contact-form [type="submit"] {
+            border: none;
+            height: min-content;
+            flex-basis: min-content;
+            font-family: monospace;
+            cursor: pointer;
+            transition: background-color 0.25s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+        }
+
+        #contact-form [type="submit"]:disabled {
+            color: #ccc;
+        }
+
+        #contact-form input:focus {
+            outline: none;
+        }
+
+
+        #contact-form textarea:focus {
+            outline: none;
+        }
+
+        #contact-form .sent {
+            background-color: rgb(204, 245, 202);
+        }
+
+        #contact-form .failed {
+            background-color: crimson;
+        }
+    </style>
+    <script>
+        /** @type {HTMLFormElement} */
+        const mailerHandler = (res) => {
+            console.log
+            const delay = 2000;
+            const submitBtn = document.querySelector('#contact-form input[type=submit]')
+            if (res.statusCode == 250) {
+                const sent = (reverse = false) => {
+                    submitBtn.classList.toggle('sent', !reverse)
+                    submitBtn.classList.toggle('failed', false)
+                    submitBtn.value = reverse ? 'send' : res.message
+                }
+                sent()
+                setTimeout(() => sent(true), delay)
+            } else {
+                const failed = (reverse = false) => {
+                    submitBtn.classList.toggle('failed', !reverse)
+                    submitBtn.classList.toggle('sent', false)
+                    submitBtn.value = reverse ? 'send' : res.message
+                }
+                failed()
+                setTimeout(() => failed(true), delay)
+            }
+        }
+        const form = document.forms['contact-form']
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            e.submitter.disabled = true
+            setTimeout(() => e.submitter.disabled = false, 5000)
+            fetch('/.netlify/functions/contact-form-submit', {
+                method: "POST",
+                body: JSON.stringify({
+                    email: form.email.value,
+                    subject: form.subject.value,
+                    body: form.body.value
+                })
+            }).then(res => res.json())
+                .then(mailerHandler)
+        })
+
+    </script>
+</form>
