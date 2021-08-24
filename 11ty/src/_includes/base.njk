@@ -10,7 +10,9 @@
 </head>
 
 <body>
+    {% if banner %}
     {% include "partials/banner.njk" %}
+    {% endif %}
     <div id="page-content" class="flex-column-gap size0">
         {% include "partials/header.njk" %}
         {% include "partials/main.njk" %}
