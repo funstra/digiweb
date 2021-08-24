@@ -1,7 +1,5 @@
-// Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const nodemailer = require('nodemailer')
 const handler = async (event) => {
-
     const emailPattern = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/
 
     try {
@@ -16,9 +14,10 @@ const handler = async (event) => {
                     pass: process.env.CONTACT_FORM_PWD
                 }
             })
+            console.log({ job: 'job@digimoon.space', contact: 'contact@digimoon.space' }[data.to])
             const info = await transporter.sendMail({
                 from: data.email,
-                to: 'contact@digimoon.space',
+                to: { job: 'jobs@digimoon.space', contact: 'contact@digimoon.space' }[data.to],
                 subject: data.subject || 'no subject',
                 text: data.body
             })

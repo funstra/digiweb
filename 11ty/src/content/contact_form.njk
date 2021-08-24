@@ -1,8 +1,20 @@
 ---
-title: contact form
+title: contact
 contentclass: flex-column-gap CENTER size2
 ---
-<form action="" method="POST" class="flex-column" id="contact-form">
+
+<form action="" method="POST" class="flex-column-gap size0" id="contact-form">
+
+    <select name="to" id="">
+        <option value="info">Let's talk 💬</option>
+        <option value="job">Job 🛠️</option>
+        <script>
+            if (localStorage.getItem('jobContact') === 'true') {
+                document.querySelector('#contact-form select').selectedIndex = 1
+                localStorage.removeItem('jobContact')
+            }
+        </script>
+    </select>
     <div class="labeled">
         <div>
             <label for="email">email</label>
@@ -24,12 +36,9 @@ contentclass: flex-column-gap CENTER size2
             height: clamp(192px, 85%, 512px);
         }
 
-        #contact-form>* {
-            width: 100%;
-        }
-
-        #contact-form .labeled {
-            outline: none;
+        #contact-form select{
+            border: none;
+            cursor: pointer;
         }
 
         #contact-form .labeled div {
@@ -119,6 +128,7 @@ contentclass: flex-column-gap CENTER size2
                 method: "POST",
                 body: JSON.stringify({
                     email: form.email.value,
+                    to: form.to.value,
                     subject: form.subject.value,
                     body: form.body.value
                 })

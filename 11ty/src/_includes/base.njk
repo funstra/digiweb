@@ -10,8 +10,11 @@
 </head>
 
 <body>
-    {% include "partials/header.njk" %}
-    {% include "partials/main.njk" %}
+    {% include "partials/banner.njk" %}
+    <div id="page-content" class="flex-column-gap size0">
+        {% include "partials/header.njk" %}
+        {% include "partials/main.njk" %}
+    </div>
 </body>
 
 </html>

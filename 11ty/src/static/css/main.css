@@ -6,6 +6,10 @@ ul {
     padding: 0;
     margin: 0;
 }
+textarea {
+    padding: 0;
+    margin: 0;
+}
 
 /* variables - - -  */
 html {
@@ -27,31 +31,40 @@ html {
     overflow: hidden;
 }
 body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--col-main-light);
+}
+#page-content {
     max-width: 1024px;
+    flex-basis: 97.5%;
     width: 100%;
     margin: auto auto;
     background-color: var(--col-main-light);
     flex-grow: 1;
     padding: var(--size3);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: var(--size1);
 }
-
-body > header {
+#page-content > header {
     height: 10%;
-    display: flex;
     gap: var(--size4);
 }
-
-body > header nav {
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-end;
+#page-content > footer {
+    height: 10%;
+}
+header nav,
+footer nav {
     padding: var(--size1);
+}
+#page-content > header nav {
+    align-items: flex-end;
+    justify-content: end;
+}
+#page-content > footer nav {
+    transform: scaleX(-1);
+    align-items: flex-end;
 }
 
 main {
@@ -63,6 +76,9 @@ main {
 .srcoll {
     overflow: scroll;
 }
+li {
+    list-style: none;
+}
 
 /* Typography - - -  */
 
@@ -73,7 +89,9 @@ h4:first-child,
 h5:first-child {
     margin-top: 0;
 }
-
+p {
+    margin: 0;
+}
 .justify {
     text-align: justify;
 }
@@ -104,13 +122,22 @@ h5:first-child {
 [class|="flex"][class*="gap"] {
     gap: var(--elm-size);
 }
+[class|="flex"][class*="center"] {
+    align-items: center;
+}
 [class|="flex"][class*="CENTER"] {
     align-items: center;
     justify-content: center;
 }
-[class|="flex"][class*="center"] {
+[class|="flex"][class*="cenTER"] {
     align-items: center;
     justify-content: center;
+}
+[class|="flex"] > [class*="end-right"] {
+    margin-left: auto;
+}
+[class|="flex"] > [class*="end-left"] {
+    margin-right: auto;
 }
 
 [alt="moon-wall"] {

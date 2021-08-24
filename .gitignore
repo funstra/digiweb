@@ -3,3 +3,4 @@ node_modules
 11ty/ghpage
 # Local Netlify folder
 .netlify
+.env
