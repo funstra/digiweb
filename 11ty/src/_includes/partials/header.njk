@@ -1,6 +1,6 @@
 <header class="flex">
     <svg viewBox="-256 -256 512 512" version="1.1" preserveAspectRatio="xMinYMid" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink">
+            xmlns:xlink="http://www.w3.org/1999/xlink">
         <style>
             svg {
                 --moon: hsla(60, 75%, 94%, 0.95);
@@ -12,10 +12,10 @@
                 <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
                 <feMorphology operator="dilate" radius="4"/>
                 <feColorMatrix type="matrix" values="1 0 0 0 0
-                        0.4 1 0 0 0
-                        0.4 0 1 0 0
-                        0 0 0 0.5 0
-                        "/>
+                            0.4 1 0 0 0
+                            0.4 0 1 0 0
+                            0 0 0 0.5 0
+                            "/>
                 <feMerge>
                     <feMergeNode in="SourceGraphic"/>
                     <feMergeNode/>
@@ -24,11 +24,13 @@
         </defs>
         {% set r = 216 %}
         {% set w = 24 %}
-        <path filter="url(#glow)" stroke="none" stroke-width="2" fill="var(--moon)" d="
-        M{{r}} -64
-        A
-        {{r+8}},{{r+8}} 0 1 0 {{r}} 64
-        {{r-w}},{{r-w}} 0 1 1 {{r}} -64z"/>
+        <a href="/">
+            <path filter="url(#glow)" stroke="none" stroke-width="2" fill="var(--moon)" d="
+                M{{r}} -64
+                A
+                {{r+8}},{{r+8}} 0 1 0 {{r}} 64
+                {{r-w}},{{r-w}} 0 1 1 {{r}} -64z"/>
+        </a>
     </svg>
     <nav class="flex-column end-right">
         {% for nav in collections.mainnav %}
