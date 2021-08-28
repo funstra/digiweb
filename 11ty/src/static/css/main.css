@@ -70,7 +70,6 @@ footer nav {
 main {
     padding: var(--size3);
     height: 100%;
-    overflow: scroll;
     border: 2px var(--col-soft) dashed;
 }
 .srcoll {
