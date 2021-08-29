@@ -19,7 +19,10 @@ const handler = async (event) => {
                 from: data.email,
                 to: { job: 'jobs@digimoon.space', contact: 'contact@digimoon.space' }[data.to],
                 subject: data.subject || 'no subject',
-                text: data.body
+                text: data.body,
+                headers: {
+                    "X-digimoon-form": "true"
+                }
             })
             console.log(info.accepted)
             if ((info).accepted) {
